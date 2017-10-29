@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <todo-item
+          v-for="item in todos"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        >
+      </ul>
+    </div>
+  </body>
+</html>
