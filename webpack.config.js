@@ -11,16 +11,16 @@ const buildRoot = path.resolve(__dirname, 'build');
 module.exports = {
   context: appRoot,
   entry: [
-    path.join(appRoot, 'app.js'),
+    path.join(appRoot, 'main.js'),
   ],
   output: {
     path: buildRoot,
     filename: 'bundle.js',
   },
   node: {
-	fs: false,
-	process: false,
-	Buffer: false,
+    fs: false,
+    process: true,
+    Buffer: false,
   },
   devServer: {
     contentBase: 'build',
@@ -33,14 +33,18 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.webpack.js', '.web.js', '.js'],
     alias: {
-      vue: 'vue/dist/vue.common.js',
+      'vue$': 'vue/dist/vue.esm.js',
     },
   },
   module: {
     loaders: [
-      { test: /\.js$/,
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
