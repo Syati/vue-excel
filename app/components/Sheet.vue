@@ -11,7 +11,9 @@
       </tr></thead>
       <tbody>
         <tr v-for="r, key in data" :key="key">
-          <td v-for="c in cols" :key="c.key">{{ r[c.key] }}</td>
+          <td v-for="c in cols" :key="c.key">
+            <sheet-cell v-model="r[c.key]"></sheet-cell>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -20,10 +22,12 @@
 
 <script>
 import XLSX from 'xlsx'
+import SheetCell from './SheetCell.vue'
 
 export default {
-  name: 'sheet',
-  data(){
+  name: 'Sheet',
+  components: {'sheet-cell': SheetCell},
+  data: function(){
     return {
       data: [],
       cols: [],
