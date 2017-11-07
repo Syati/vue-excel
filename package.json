@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "karma start ./test/unit/karma.conf.js --signle-run",
+    "test": "karma start ./test/unit/karma.conf.js --single-run",
     "start:dev": "webpack-dev-server"
   },
   "author": "",
