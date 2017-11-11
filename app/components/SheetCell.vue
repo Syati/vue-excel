@@ -1,6 +1,6 @@
 <template>
   <div class="sheetCell" @click="handleCellClick">
-    <span v-show="!isEditing">{{ value }}</span>
+    <span class="sheetCellValue" v-show="!isEditing">{{ value }}</span>
     <input v-show="isEditing"
            ref='cell'
            :value="value"
