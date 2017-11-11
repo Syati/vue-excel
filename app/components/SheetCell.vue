@@ -1,7 +1,8 @@
 <template>
   <div class="sheetCell" @click="handleCellClick">
     <span class="sheetCellValue" v-show="!isEditing">{{ value }}</span>
-    <input v-show="isEditing"
+    <input class="sheetCellInput"
+           v-show="isEditing"
            ref='cell'
            :value="value"
            @input="updateValue($event.target.value)"
