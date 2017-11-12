@@ -10,7 +10,7 @@ module.exports = function(config) {
     files: ['./index.js'],
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: { './index.js': ['webpack'] },
+    preprocessors: { './index.js': ['webpack', 'sourcemap'] },
     webpack: webpackConfig,
     webpackMiddleware: {
       noInfo: true,
@@ -18,8 +18,14 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots'],
-
+    reporters: ['spec', 'coverage'],
+    coverageReporter: {
+      dir: '../../doc/coverage',
+      reporters: [
+        { type: 'lcov', subdir: '.' },
+        { type: 'text-summary' },
+      ],
+    },
     // web server port
     port: 9876,
 

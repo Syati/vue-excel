@@ -9,5 +9,11 @@
         }
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": ["env"],
+      "plugins": ["istanbul"]
+    }
+  }
 }

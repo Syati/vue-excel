@@ -13,6 +13,7 @@ module.exports = {
   entry: [
     path.join(appRoot, 'main.js'),
   ],
+  devtool: 'inline-source-map',
   output: {
     path: buildRoot,
     filename: 'bundle.js',
